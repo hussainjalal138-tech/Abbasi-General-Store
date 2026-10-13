@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17233d">
+<title>Abbasi General Store | Your Everyday Stop</title>
+<meta name="description" content="Discover bakery favourites, snacks, rice and everyday essentials at Abbasi General Store.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --navy:#17233d;
+  --navy2:#233453;
+  --orange:#f07843;
+  --cream:#f8f6f0;
+  --paper:#fffefa;
+  --text:#222b3a;
+  --muted:#7c8490;
+  --line:#e9e7df;
+  --green:#547b62;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--text)}
+button,input,textarea{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer}
+.wrap{width:min(1160px,90%);margin:auto}
+
+/* Announcement */
+.announcement{
+  background:var(--navy);color:#fff;
+  padding:10px 5%;text-align:center;
+  font-size:10px;letter-spacing:1.5px
+}
+.announcement span{color:#ffc09e}
+
+/* Header */
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(255,254,250,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)
+}
+.header-inner{
+  width:min(1160px,90%);margin:auto;min-height:82px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-icon{
+  width:45px;height:45px;background:var(--orange);
+  color:white;border-radius:13px 13px 13px 4px;
+  display:grid;place-items:center;
+  font:800 25px 'Manrope',sans-serif
+}
+.brand-name{font:800 16px 'Manrope',sans-serif;letter-spacing:-.5px;color:var(--navy)}
+.brand-tag{font-size:9px;letter-spacing:2px;color:var(--muted);margin-top:3px}
+nav{display:flex;gap:29px}
+nav a{font-size:12px;font-weight:700;color:#535d6e}
+nav a:hover{color:var(--orange)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.basket-button{
+  background:var(--navy);color:white;border:0;border-radius:9px;
+  padding:12px 15px;font-size:12px;font-weight:700
+}
+.basket-button b{color:#ffc09e;margin-left:6px}
+.menu-button{display:none;border:1px solid var(--line);background:white;padding:10px;border-radius:8px}
+
+/* Hero */
+.hero{
+  background:var(--cream);overflow:hidden;
+  position:relative;padding:66px 0 48px
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr .95fr;
+  gap:55px;align-items:center
+}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  background:#fff;border:1px solid #ece7da;border-radius:30px;
+  padding:8px 12px;font-size:10px;font-weight:800;
+  letter-spacing:1px;color:var(--navy)
+}
+.kicker i{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.hero h1{
+  font:800 clamp(43px,5.6vw,72px)/1.06 'Manrope',sans-serif;
+  color:var(--navy);letter-spacing:-3.5px;margin:25px 0 20px
+}
+.hero h1 span{color:var(--orange)}
+.hero-copy>p{
+  max-width:430px;color:var(--muted);
+  font-size:13px;line-height:1.95
+}
+.hero-buttons{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:28px}
+.primary-button,.secondary-button{
+  display:inline-flex;align-items:center;justify-content:center;gap:18px;
+  padding:15px 18px;border-radius:9px;font-size:11px;font-weight:800;
+  transition:transform .2s,background .2s
+}
+.primary-button{background:var(--orange);color:white;border:1px solid var(--orange)}
+.secondary-button{background:transparent;border:1px solid #d9d7ce;color:var(--navy)}
+.primary-button:hover,.secondary-button:hover{transform:translateY(-2px)}
+.hero-caption{
+  display:flex;align-items:center;gap:11px;margin-top:36px;
+  font-size:10px;color:var(--muted)
+}
+.caption-icon{
+  display:grid;place-items:center;width:33px;height:33px;
+  border-radius:50%;background:#e8eddf;color:var(--green);font-size:15px
+}
+
+/* Reserved shop photo area */
+.shop-photo-frame{
+  min-height:390px;position:relative;
+  border-radius:22px;overflow:hidden;
+  background:#e9e5d9;border:1px solid #ded8c9;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center
+}
+.shop-photo-frame:before,.shop-photo-frame:after{
+  content:"";position:absolute;border:1px solid #d5cbb5;
+  border-radius:50%;width:260px;height:260px
+}
+.shop-photo-frame:after{width:330px;height:330px}
+.photo-placeholder{
+  position:relative;z-index:1;width:75%;padding:30px 15px;
+  border:1px dashed #b9ad95;border-radius:18px;background:#f4f0e6
+}
+.camera-icon{
+  width:53px;height:53px;display:grid;place-items:center;
+  margin:0 auto 15px;border-radius:15px;background:white;
+  color:var(--navy);font-size:23px
+}
+.photo-placeholder h3{font:800 17px 'Manrope',sans-serif;color:var(--navy)}
+.photo-placeholder p{font-size:11px;line-height:1.8;color:var(--muted);margin-top:9px}
+.photo-label{
+  position:absolute;z-index:2;bottom:18px;left:18px;right:18px;
+  background:var(--navy);color:white;border-radius:12px;
+  padding:14px 16px;display:flex;justify-content:space-between;align-items:center;
+  text-align:left
+}
+.photo-label small{font-size:9px;color:#c6cbd4;display:block;margin-top:4px}
+.photo-label strong{font-size:12px}
+.photo-label span:last-child{color:#ffc09e;font-size:22px}
+
+/* Trust strip */
+.trust-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  padding:24px 0;border-bottom:1px solid var(--line);gap:20px
+}
+.trust-item{display:flex;align-items:center;justify-content:center;gap:12px}
+.trust-symbol{
+  width:40px;height:40px;display:grid;place-items:center;
+  background:#f2eee4;color:var(--navy);border-radius:12px;font-size:18px
+}
+.trust-item strong{font-size:11px;display:block}
+.trust-item small{font-size:10px;color:var(--muted);display:block;margin-top:4px}
+
+/* Catalog */
+.catalog{padding:78px 0 85px}
+.section-head{
+  display:flex;justify-content:space-between;align-items:end;
+  gap:25px;margin-bottom:27px
+}
+.section-label{
+  color:var(--orange);font-size:10px;letter-spacing:2px;font-weight:800
+}
+.section-head h2,.story h2,.location-copy h2{
+  font:800 clamp(29px,4vw,43px)/1.2 'Manrope',sans-serif;
+  letter-spacing:-1.5px;color:var(--navy);margin-top:11px
+}
+.section-head>p{
+  max-width:330px;font-size:11px;line-height:1.9;color:var(--muted)
+}
+.catalog-tools{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:15px;flex-wrap:wrap;margin-bottom:25px
+}
+.filters{display:flex;flex-wrap:wrap;gap:7px}
+.filter{
+  padding:10px 13px;border-radius:8px;border:1px solid var(--line);
+  background:white;color:#68717d;font-size:10px;font-weight:700
+}
+.filter.active,.filter:hover{background:var(--navy);border-color:var(--navy);color:white}
+.search{
+  display:flex;align-items:center;gap:9px;background:white;
+  border:1px solid var(--line);border-radius:9px;padding:0 12px;
+  height:40px;min-width:220px
+}
+.search span{font-size:18px;color:var(--orange)}
+.search input{border:0;outline:none;background:transparent;width:100%;font-size:11px;color:var(--text)}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.product-card{
+  border:1px solid var(--line);border-radius:13px;overflow:hidden;
+  background:white;transition:transform .22s,box-shadow .22s
+}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px #17233d0d}
+.product-image{
+  height:180px;position:relative;background:#f1eee5;overflow:hidden
+}
+.product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.product-card:hover .product-image img{transform:scale(1.05)}
+.product-tag{
+  position:absolute;top:10px;left:10px;padding:7px 9px;
+  background:#fff;border-radius:6px;font-size:8px;font-weight:800;
+  letter-spacing:.6px;color:var(--navy)
+}
+.product-info{padding:15px}
+.product-info h3{font-size:13px;font-weight:800;color:var(--navy)}
+.product-info p{font-size:10px;color:var(--muted);line-height:1.7;margin-top:7px;min-height:32px}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:13px}
+.availability{font-size:9px;color:var(--green);font-weight:700}
+.add-button{
+  border:0;background:var(--orange);color:white;width:33px;height:33px;
+  border-radius:8px;font-size:20px;line-height:1
+}
+.add-button:hover{background:var(--navy)}
+.no-results{grid-column:1/-1;padding:45px;text-align:center;color:var(--muted);font-size:13px}
+.catalog-note{font-size:10px;line-height:1.8;color:var(--muted);margin-top:22px}
+
+/* Story */
+.story{
+  background:var(--navy);color:white;padding:66px 0
+}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.story-art{
+  min-height:280px;background:#202f4a;border:1px solid #40506a;
+  border-radius:18px;display:grid;place-items:center;padding:25px
+}
+.story-art-inner{
+  width:100%;min-height:225px;border:1px dashed #68768a;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:25px;color:#c5ced8
+}
+.story-art-inner strong{display:block;color:#ffc09e;font-size:12px;margin-bottom:10px}
+.story-art-inner p{font-size:10px;line-height:1.8}
+.story .section-label{color:#ffc09e}
+.story h2{color:white;margin-bottom:18px}
+.story-copy>p{font-size:12px;line-height:2;color:#c9d0da;max-width:440px}
+.story-points{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:25px}
+.story-point{border-top:1px solid #3b4960;padding-top:13px}
+.story-point strong{font-size:11px;display:block;color:white}
+.story-point small{font-size:10px;color:#b6bfcd;display:block;margin-top:5px}
+
+/* Location */
+.location{padding:76px 0;background:#f5f3ec}
+.location-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+.location-copy>p{font-size:12px;color:var(--muted);line-height:1.9;margin:17px 0 24px}
+.map-placeholder{
+  min-height:260px;border:1px solid #dedbd0;border-radius:16px;
+  background-color:#e9eadf;
+  background-image:linear-gradient(32deg,transparent 46%,#fff 47%,#fff 50%,transparent 51%),
+  linear-gradient(125deg,transparent 40%,#d4dfce 41%,#d4dfce 45%,transparent 46%);
+  background-size:170px 130px,200px 180px;
+  display:grid;place-items:center;padding:25px
+}
+.map-inner{background:white;border-radius:13px;padding:22px;width:min(310px,100%);box-shadow:0 8px 30px #17233d10}
+.map-inner h3{font-size:15px;color:var(--navy);margin-bottom:8px}
+.map-inner p{font-size:10px;color:var(--muted);line-height:1.8;margin-bottom:15px}
+.map-inner a{font-size:11px;font-weight:800;color:var(--orange)}
+
+/* Footer */
+footer{background:#111b30;color:white;padding:32px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-brand{font-size:13px;font-weight:800;letter-spacing:1px}
+.footer-brand span{color:#ffc09e}
+footer p,footer small{color:#aeb8c7;font-size:10px;line-height:1.8}
+
+/* Cart */
+.overlay{
+  position:fixed;inset:0;background:#101a2dc4;z-index:39;
+  opacity:0;pointer-events:none;transition:opacity .2s
+}
+.overlay.open{opacity:1;pointer-events:auto}
+.cart-panel{
+  position:fixed;z-index:40;top:0;right:0;height:100dvh;
+  width:min(420px,100%);background:white;padding:24px;
+  transform:translateX(105%);transition:transform .25s;
+  display:flex;flex-direction:column;overflow-y:auto
+}
+.cart-panel.open{transform:translateX(0)}
+.cart-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:17px}
+.cart-head h2{font:800 25px 'Manrope',sans-serif;color:var(--navy)}
+.close-button{border:0;background:transparent;color:var(--navy);font-size:28px}
+.cart-items{flex:1;padding:15px 0}
+.cart-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.cart-row strong{font-size:12px;color:var(--navy)}
+.cart-row small{display:block;color:var(--muted);font-size:10px;margin:5px 0}
+.quantity{display:flex;align-items:center;gap:8px;margin-top:8px}
+.quantity button,.remove-item{border:1px solid var(--line);background:white;padding:5px 9px;font-size:11px}
+.remove-item{color:#b64b3b;margin-top:7px}
+.cart-empty{padding:30px 0;color:var(--muted);font-size:12px;line-height:1.8}
+.cart-bottom{border-top:1px solid var(--line);padding-top:15px}
+.cart-bottom p{font-size:10px;line-height:1.8;color:var(--muted);margin:10px 0}
+.cart-bottom button{width:100%;border:0;background:var(--orange);color:white;padding:14px;border-radius:8px;font-size:11px;font-weight:800}
+.form-field{display:grid;gap:6px;margin-top:12px}
+.form-field label{font-size:10px;font-weight:800;color:var(--navy)}
+.form-field input,.form-field textarea{padding:11px;border:1px solid var(--line);border-radius:7px;outline-color:var(--orange);font-size:11px;width:100%}
+.form-field textarea{resize:vertical;min-height:65px}
+.toast{
+  position:fixed;z-index:50;bottom:20px;left:50%;
+  transform:translate(-50%,15px);opacity:0;pointer-events:none;
+  background:var(--navy);color:white;border-radius:9px;
+  padding:13px 19px;font-size:11px;transition:.2s;
+  max-width:90%;text-align:center
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:900px){
+  .hero-grid{gap:30px}
+  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .product-image{height:165px}
+  .section-head{align-items:start;flex-direction:column}
+  .location-grid{gap:25px}
+}
+@media(max-width:650px){
+  .wrap,.header-inner{width:92%}
+  .header-inner{min-height:72px}
+  .brand-icon{width:39px;height:39px}
+  .brand-name{font-size:14px}
+  nav{
+    display:none;position:absolute;left:4%;right:4%;top:72px;
+    padding:18px;background:white;border:1px solid var(--line);
+    border-radius:12px;box-shadow:0 12px 25px #17233d10
+  }
+  nav.open{display:grid;gap:18px}
+  .menu-button{display:block}
+  .basket-button{padding:11px}
+  .hero{padding:42px 0 30px}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero h1{font-size:54px;letter-spacing:-2.5px}
+  .shop-photo-frame{min-height:285px}
+  .photo-placeholder{width:78%}
+  .trust-strip{grid-template-columns:1fr;gap:17px;padding:22px 0}
+  .trust-item{justify-content:flex-start}
+  .catalog{padding:55px 0}
+  .catalog-tools{align-items:stretch}
+  .filters{gap:6px}
+  .filter{padding:9px 10px}
+  .search{min-width:0;width:100%}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .product-image{height:140px}
+  .product-info{padding:11px}
+  .product-info h3{font-size:12px}
+  .product-info p{font-size:9px;min-height:45px}
+  .availability{font-size:8px}
+  .story{padding:48px 0}
+  .story-grid,.location-grid{grid-template-columns:1fr;gap:28px}
+  .story-art{min-height:215px}
+  .story-art-inner{min-height:165px}
+  .story h2,.location-copy h2{font-size:33px}
+  .location{padding:52px 0}
+  .map-placeholder{min-height:230px}
+  .footer-inner{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+<div class="announcement">
+  YOUR NEIGHBOURHOOD STORE <span>✳</span> EVERYDAY FAVOURITES, ALL IN ONE PLACE
+</div>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="#home">
+      <div class="brand-icon">A.</div>
+      <div>
+        <div class="brand-name">ABBASI STORE</div>
+        <div class="brand-tag">GENERAL STORE</div>
+      </div>
+    </a>
+
+    <nav id="navigation">
+      <a href="#home">Home</a>
+      <a href="#products">Our Products</a>
+      <a href="#about">About Us</a>
+      <a href="#location">Find Us</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="basket-button" onclick="openCart()">
+        My Basket <b id="basketCount">0</b>
+      </button>
+      <button class="menu-button" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="kicker"><i></i> YOUR EVERYDAY STOP</div>
+      <h1>Little things.<br><span>Big comfort.</span></h1>
+      <p>
+        From fresh bakery favourites to crunchy snacks and everyday kitchen
+        essentials, find the things your home needs at Abbasi General Store.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="primary-button" href="#products">EXPLORE OUR STORE ↗</a>
+        <a class="secondary-button" href="#location">FIND OUR LOCATION</a>
+      </div>
+
+      <div class="hero-caption">
+        <span class="caption-icon">✓</span>
+        <span>Simple shopping. Friendly neighbourhood service.</span>
+      </div>
+    </div>
+
+    <!-- SHOP PHOTO PLACEHOLDER: replace this area with the real shop photo later -->
+    <div class="shop-photo-frame">
+      <div class="photo-placeholder">
+        <div class="camera-icon">▧</div>
+        <h3>Your Store Photo</h3>
+        <p>
+          Abbasi General Store<br>
+          Original shop photo goes here
+        </p>
+      </div>
+      <div class="photo-label">
+        <div>
+          <strong>Abbasi General Store</strong>
+          <small>Your familiar neighbourhood shop</small>
+        </div>
+        <span>↗</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap trust-strip">
+  <div class="trust-item">
+    <span class="trust-symbol">✳</span>
+    <div><strong>Bakery Favourites</strong><small>Bread, cakes and biscuits</small></div>
+  </div>
+  <div class="trust-item">
+    <span class="trust-symbol">◇</span>
+    <div><strong>Crunchy Snacks</strong><small>Chips and snack-time treats</small></div>
+  </div>
+  <div class="trust-item">
+    <span class="trust-symbol">⌂</span>
+    <div><strong>Kitchen Essentials</strong><small>Rice and everyday groceries</small></div>
+  </div>
+</div>
+
+<section class="catalog wrap" id="products">
+  <div class="section-head">
+    <div>
+      <div class="section-label">A LITTLE SOMETHING FOR EVERYONE</div>
+      <h2>Meet your favourites.</h2>
+    </div>
+    <p>
+      Explore our everyday selection. Choose your items and send your
+      shopping request directly to the store.
+    </p>
+  </div>
+
+  <div class="catalog-tools">
+    <div class="filters" id="filters"></div>
+    <label class="search">
+      <span>⌕</span>
+      <input id="searchInput" type="search" placeholder="Find your favourite..." aria-label="Search products">
+    </label>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+
+  <p class="catalog-note">
+    Product images are illustrative. Please confirm product availability with the store.
+  </p>
+</section>
+
+<section class="story" id="about">
+  <div class="wrap story-grid">
+    <div class="story-art">
+      <div class="story-art-inner">
+        <div>
+          <strong>YOUR SHOP PHOTO</strong>
+          <p>
+            Reserved space for another original photo of<br>
+            Abbasi General Store or its products.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-copy">
+      <div class="section-label">SMALL STORE. EVERYDAY NEEDS.</div>
+      <h2>Your neighbourhood,<br>your everyday store.</h2>
+      <p>
+        From a loaf of bread for breakfast to snacks for the evening and
+        rice for the kitchen, Abbasi General Store is here for everyday
+        shopping. Browse the selection and contact the store to check
+        availability.
+      </p>
+
+      <div class="story-points">
+        <div class="story-point">
+          <strong>Bakery & Snacks</strong>
+          <small>Everyday treats and favourites</small>
+        </div>
+        <div class="story-point">
+          <strong>Kitchen Essentials</strong>
+          <small>Staples for daily meals</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <div class="wrap location-grid">
+    <div class="location-copy">
+      <div class="section-label">NEAR YOU, HERE FOR YOU</div>
+      <h2>Come find your<br>local store.</h2>
+      <p>
+        Need directions? Open the Google Maps location shared for
+        Abbasi General Store.
+      </p>
+      <a class="primary-button"
+         href="https://maps.app.goo.gl/8adT5khmN9Vedmgj7"
+         target="_blank" rel="noopener">
+        OPEN GOOGLE MAPS ↗
+      </a>
+    </div>
+
+    <div class="map-placeholder">
+      <div class="map-inner">
+        <h3>Abbasi General Store</h3>
+        <p>
+          Open the original map pin to see the location and available
+          directions.
+        </p>
+        <a href="https://maps.app.goo.gl/8adT5khmN9Vedmgj7"
+           target="_blank" rel="noopener">GET DIRECTIONS →</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">ABBASI <span>GENERAL STORE</span></div>
+      <p>Everyday essentials. Your neighbourhood store.</p>
+    </div>
+    <small>© <span id="year"></span> Abbasi General Store</small>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="cart-panel" id="cartPanel" aria-label="Shopping basket">
+  <div class="cart-head">
+    <h2>Your Basket</h2>
+    <button class="close-button" onclick="closeCart()" aria-label="Close basket">×</button>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+
+  <div class="cart-bottom">
+    <p>No prices are displayed on this website. The store will confirm your items and total.</p>
+
+    <form id="orderForm">
+      <div class="form-field">
+        <label for="customerName">YOUR NAME</label>
+        <input id="customerName" name="name" required placeholder="Enter your name">
+      </div>
+
+      <div class="form-field">
+        <label for="customerPhone">PHONE / WHATSAPP</label>
+        <input id="customerPhone" name="phone" type="tel" required placeholder="03xx xxxxxxx">
+      </div>
+
+      <div class="form-field">
+        <label for="customerAddress">DELIVERY ADDRESS / NOTES</label>
+        <textarea id="customerAddress" name="address" required placeholder="Enter your address or pickup details"></textarea>
+      </div>
+
+      <button class="full" type="submit">SEND ORDER ON WHATSAPP ↗</button>
+    </form>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const products = [
+  {
+    id:1, name:"Fresh Bakery Bread", category:"Bakery",
+    description:"A familiar favourite for breakfast and everyday meals.",
+    image:"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:2, name:"Bakery Cake", category:"Bakery",
+    description:"A sweet treat for family time and special moments.",
+    image:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:3, name:"Biscuits & Cookies", category:"Bakery",
+    description:"Tea-time bites and little everyday treats.",
+    image:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:4, name:"Potato Chips", category:"Snacks",
+    description:"Crispy, crunchy snacks for sharing.",
+    image:"https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:5, name:"Kurkure-Style Snacks", category:"Snacks",
+    description:"Crunchy snack-time favourites.",
+    image:"https://images.unsplash.com/photo-1621939514649-280e2aa2f736?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:6, name:"Assorted Snack Packs", category:"Snacks",
+    description:"A selection of tasty packaged snacks.",
+    image:"https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:7, name:"Everyday Rice", category:"Grocery",
+    description:"A kitchen staple for everyday family meals.",
+    image:"https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:8, name:"Pulses & Lentils", category:"Grocery",
+    description:"Useful pantry staples for home cooking.",
+    image:"https://images.unsplash.com/photo-1515543904379-3d757afe72e4?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:9, name:"Tea-Time Essentials", category:"Grocery",
+    description:"Everyday cupboard favourites for your home.",
+    image:"https://images.unsplash.com/photo-1544787219-7f47ali8e?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id:10, name:"Household Essentials", category:"Household",
+    description:"Practical everyday items for the household.",
+    image:"https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=700&q=80"
+  }
+];
+
+let basket = {};
+let selectedCategory = "All";
+let searchText = "";
+let toastTimer;
+
+const $ = selector => document.querySelector(selector);
+
+function safe(value){
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[char]);
+}
+
+function renderFilters(){
+  const categories = ["All", ...new Set(products.map(product => product.category))];
+
+  $("#filters").innerHTML = categories.map(category => `
+    <button class="filter ${category === selectedCategory ? "active" : ""}"
+      data-filter="${safe(category)}">${safe(category)}</button>
+  `).join("");
+}
+
+function renderProducts(){
+  const results = products.filter(product => {
+    const categoryMatches =
+      selectedCategory === "All" || product.category === selectedCategory;
+
+    const textMatches =
+      (product.name + " " + product.category + " " + product.description)
+      .toLowerCase().includes(searchText.toLowerCase());
+
+    return categoryMatches && textMatches;
+  });
+
+  if(!results.length){
+    $("#productGrid").innerHTML =
+      '<div class="no-results">No matching items found. Try another search.</div>';
+    return;
+  }
+
+  $("#productGrid").innerHTML = results.map(product => `
+    <article class="product-card">
+      <div class="product-image">
+        <img src="${safe(product.image)}"
+             alt="${safe(product.name)}"
+             loading="lazy"
+             onerror="this.onerror=null;this.src='https://placehold.co/600x400/f1eee5/17233d?text=Abbasi+Store'">
+        <span class="product-tag">${safe(product.category)}</span>
+      </div>
+
+      <div class="product-info">
+        <h3>${safe(product.name)}</h3>
+        <p>${safe(product.description)}</p>
+        <div class="product-bottom">
+          <span class="availability">● ASK FOR AVAILABILITY</span>
+          <button class="add-button" data-add="${product.id}"
+                  aria-label="Add ${safe(product.name)} to basket">+</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function showToast(message){
+  const toast = $("#toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2300);
+}
+
+function addItem(id){
+  basket[id] = (basket[id] || 0) + 1;
+  renderBasket();
+  showToast("Item added to your basket");
+}
+
+function changeQuantity(id, amount){
+  basket[id] = (basket[id] || 0) + amount;
+  if(basket[id] <= 0) delete basket[id];
+  renderBasket();
+}
+
+function renderBasket(){
+  const entries = Object.entries(basket)
+    .map(([id, quantity]) => ({
+      product: products.find(product => product.id === Number(id)),
+      quantity
+    }))
+    .filter(entry => entry.product && entry.quantity > 0);
+
+  const count = entries.reduce((sum, entry) => sum + entry.quantity, 0);
+  $("#basketCount").textContent = count;
+
+  if(!entries.length){
+    $("#cartItems").innerHTML =
+      '<div class="cart-empty">Your basket is empty.<br>Add bakery favourites, snacks or groceries to get started.</div>';
+    return;
+  }
+
+  $("#cartItems").innerHTML = entries.map(({product, quantity}) => `
+    <div class="cart-row">
+      <div>
+        <strong>${safe(product.name)}</strong>
+        <small>${safe(product.category)}</small>
+        <div class="quantity">
+          <button data-quantity="${product.id}" data-delta="-1" aria-label="Decrease quantity">−</button>
+          <span>${quantity}</span>
+          <button data-quantity="${product.id}" data-delta="1" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="remove-item" data-remove="${product.id}">Remove</button>
+      </div>
+      <strong>× ${quantity}</strong>
+    </div>
+  `).join("");
+}
+
+function openCart(){
+  $("#cartPanel").classList.add("open");
+  $("#overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeCart(){
+  $("#cartPanel").classList.remove("open");
+  $("#overlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function toggleMenu(){
+  $("#navigation").classList.toggle("open");
+}
+
+$("#filters").addEventListener("click", event => {
+  const button = event.target.closest("[data-filter]");
+  if(!button) return;
+
+  selectedCategory = button.dataset.filter;
+  renderFilters();
+  renderProducts();
+});
+
+$("#productGrid").addEventListener("click", event => {
+  const button = event.target.closest("[data-add]");
+  if(button) addItem(Number(button.dataset.add));
+});
+
+$("#searchInput").addEventListener("input", event => {
+  searchText = event.target.value;
+  renderProducts();
+});
+
+$("#cartItems").addEventListener("click", event => {
+  const quantityButton = event.target.closest("[data-quantity]");
+  const removeButton = event.target.closest("[data-remove]");
+
+  if(quantityButton){
+    changeQuantity(
+      Number(quantityButton.dataset.quantity),
+      Number(quantityButton.dataset.delta)
+    );
+  }
+
+  if(removeButton){
+    delete basket[Number(removeButton.dataset.remove)];
+    renderBasket();
+  }
+});
+
+$("#orderForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const items = Object.entries(basket)
+    .map(([id, quantity]) => ({
+      product: products.find(product => product.id === Number(id)),
+      quantity
+    }))
+    .filter(item => item.product && item.quantity > 0);
+
+  if(!items.length){
+    showToast("Please add items to your basket first.");
+    return;
+  }
+
+  const form = new FormData(event.currentTarget);
+  const name = String(form.get("name")).trim();
+  const phone = String(form.get("phone")).trim();
+  const address = String(form.get("address")).trim();
+
+  const message = [
+    "Assalam-o-Alaikum! I want to order from Abbasi General Store.",
+    "",
+    "Name: " + name,
+    "Phone: " + phone,
+    "Address / notes: " + address,
+    "",
+    "My selected items:"
+  ];
+
+  items.forEach(item => {
+    message.push("- " + item.product.name + " × " + item.quantity);
+  });
+
+  message.push("", "Please confirm availability and the total price.");
+
+  // IMPORTANT: Replace with the store's REAL WhatsApp number.
+  // Pakistan format: country code + number, without + or spaces.
+  const whatsappNumber = "923001234567";
+
+  const whatsappURL =
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message.join("\n"));
+
+  window.open(whatsappURL, "_blank", "noopener");
+});
+
+$("#navigation").addEventListener("click", event => {
+  if(event.target.closest("a")) $("#navigation").classList.remove("open");
+});
+
+document.addEventListener("keydown", event => {
+  if(event.key === "Escape") closeCart();
+});
+
+$("#year").textContent = new Date().getFullYear();
+
+renderFilters();
+renderProducts();
+renderBasket();
+</script>
+</body>
+</html>
